@@ -9,8 +9,13 @@ class AdminEspecie{
         this.prisma = new PrismaClient()
     }
 
-    crearEspecie(req, res){
-        
+    async crearEspecie(req, res){ 
+        const datos=req.body;
+        const especie = await this.prisma.especie.create(
+            {
+                data:datos
+            }
+        )
     }
 
     listarEspecie(req,res){
